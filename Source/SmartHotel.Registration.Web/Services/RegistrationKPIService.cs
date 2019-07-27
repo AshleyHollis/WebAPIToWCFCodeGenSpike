@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using SmartHotel.Registration.Data;
+using SmartHotel.Registration.Wcf.Data;
 using SmartHotel.Registration.Models;
 using System;
 using System.Collections.Generic;

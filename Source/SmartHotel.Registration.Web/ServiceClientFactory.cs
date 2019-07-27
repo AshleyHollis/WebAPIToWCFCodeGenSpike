@@ -1,4 +1,4 @@
-﻿using SmartHotel.Registration.Data;
+﻿//using SmartHotel.Registration.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +8,19 @@ namespace SmartHotel.Registration
 {
     public static class ServiceClientFactory
     {
-        public static ServiceClient NewServiceClient()
+        // TODO: Need to replace with proper WCF client.
+        public static object NewServiceClient()
         {
-            var client = new ServiceClient();
-            var uri = Environment.GetEnvironmentVariable("WcfServiceUri");
+            //var client = new ServiceClient();
+            //var uri = Environment.GetEnvironmentVariable("WcfServiceUri");
 
-            if (!string.IsNullOrEmpty(uri))
-            {
-                client.Endpoint.Address = new System.ServiceModel.EndpointAddress(uri);
-            }
+            //if (!string.IsNullOrEmpty(uri))
+            //{
+            //    client.Endpoint.Address = new System.ServiceModel.EndpointAddress(uri);
+            //}
 
-            return client;
-
+            //return client;
+            return new object();
         }
     }
 }

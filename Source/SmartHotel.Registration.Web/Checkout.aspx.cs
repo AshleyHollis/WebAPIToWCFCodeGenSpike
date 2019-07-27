@@ -1,4 +1,4 @@
-﻿using SmartHotel.Registration.Data;
+﻿using SmartHotel.Registration.Wcf.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,15 +20,16 @@ namespace SmartHotel.Registration
             if (!registrationProvided)
                 Response.Redirect("Default.aspx");
 
-            using (var client = ServiceClientFactory.NewServiceClient())
-            {
-                var checkin = client.GetCheckout(registrationId);
-                CustomerName.Value = checkin.CustomerName;
-                Passport.Value = checkin.Passport;
-                CustomerId.Value = checkin.CustomerId;
-                Address.Value = checkin.Address;
-                Amount.Value = checkin.Amount.ToString();
-            }
+            // TODO: Need to replace with proper WCF client.
+            //using (var client = ServiceClientFactory.NewServiceClient())
+            //{
+            //    var checkin = client.GetCheckout(registrationId);
+            //    CustomerName.Value = checkin.CustomerName;
+            //    Passport.Value = checkin.Passport;
+            //    CustomerId.Value = checkin.CustomerId;
+            //    Address.Value = checkin.Address;
+            //    Amount.Value = checkin.Amount.ToString();
+            //}
         }
 
         protected void BackBtn_Click(Object sender, EventArgs e)

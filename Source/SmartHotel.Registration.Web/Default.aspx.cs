@@ -27,12 +27,13 @@ namespace SmartHotel.Registration
                 ShowKPIsButton.Visible = false;
             }
 
-            using (var client = ServiceClientFactory.NewServiceClient())
-            {
-                var registrations = client.GetTodayRegistrations();
-                RegistrationGrid.DataSource = registrations;
-                RegistrationGrid.DataBind();
-            }
+            // TODO: Need to replace with proper WCF client.
+            //using (var client = ServiceClientFactory.NewServiceClient())
+            //{
+            //    var registrations = client.GetTodayRegistrations();
+            //    RegistrationGrid.DataSource = registrations;
+            //    RegistrationGrid.DataBind();
+            //}
         }
 
         protected void RegistrationGrid_SelectedIndexChanged(Object sender, EventArgs e)

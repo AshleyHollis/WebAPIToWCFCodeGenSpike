@@ -1,4 +1,4 @@
-﻿using SmartHotel.Registration.Data;
+﻿using SmartHotel.Registration.Wcf.Data;
 using SmartHotel.Registration.Services;
 using System;
 using System.Collections.Generic;
@@ -21,22 +21,23 @@ namespace SmartHotel.Registration
         protected void AddRegisterBtn_Click(Object sender, EventArgs e)
         {
             var registrationKPIService = new RegistrationKPIService();
-            using (var client = ServiceClientFactory.NewServiceClient())
-            {
-                var booking = new Booking()
-                {
-                    CustomerName = CustomerName.Value,
-                    Passport = Passport.Value,
-                    CustomerId = string.Format("Cust-{0}", new Random().Next(1, 10000)),
-                    Address = Address.Value,
-                    Amount = int.Parse(Amount.Value),
-                    From = Calendar1.SelectedDate,
-                    To = Calendar2.SelectedDate,
-                    Total = new Random().Next(10, 40) * 100
-                };
+            // TODO: Need to replace with proper WCF client.
+            //using (var client = ServiceClientFactory.NewServiceClient())
+            //{
+            //    var booking = new Booking()
+            //    {
+            //        CustomerName = CustomerName.Value,
+            //        Passport = Passport.Value,
+            //        CustomerId = string.Format("Cust-{0}", new Random().Next(1, 10000)),
+            //        Address = Address.Value,
+            //        Amount = int.Parse(Amount.Value),
+            //        From = Calendar1.SelectedDate,
+            //        To = Calendar2.SelectedDate,
+            //        Total = new Random().Next(10, 40) * 100
+            //    };
 
-                client.PostRegister(booking);                             
-            }          
+            //    client.PostRegister(booking);                             
+            //}          
 
             Response.Redirect($"Default.aspx");
         }

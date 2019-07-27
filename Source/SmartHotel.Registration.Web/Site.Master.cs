@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using SmartHotel.Registration.Data;
+using SmartHotel.Registration.Wcf.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,14 +22,15 @@ namespace SmartHotel.Registration
             var instanceId = Environment.GetEnvironmentVariable("Fabric_ServicePackageActivationId");
             InstanceId.InnerText = instanceId;
 
-            using (var client = ServiceClientFactory.NewServiceClient())
-            {
-                var summary = client.GetTodayRegistrationSummary();
-                Checkins.InnerText = summary.CheckIns.ToString();
-                Checkouts.InnerText = summary.CheckOuts.ToString();
+            // TODO: Need to replace with proper WCF client.
+            //using (var client = ServiceClientFactory.NewServiceClient())
+            //{
+            //    var summary = client.GetTodayRegistrationSummary();
+            //    Checkins.InnerText = summary.CheckIns.ToString();
+            //    Checkouts.InnerText = summary.CheckOuts.ToString();
 
-                Clock.Text = DateTime.Now.ToShortTimeString();
-            }
+            //    Clock.Text = DateTime.Now.ToShortTimeString();
+            //}
 
         }
 

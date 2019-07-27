@@ -47,6 +47,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Framework.ServiceModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Framework.ServiceModel.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -82,6 +86,9 @@
       <HintPath>..\packages\Microsoft.Win32.Primitives.4.0.1\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SmartHotel.Registration.Wcf">
+      <HintPath>..\SmartHotel.Registration.Wcf\bin\SmartHotel.Registration.Wcf.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -113,6 +120,7 @@
     </Reference>
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
@@ -190,25 +198,14 @@
       <DependentUpon>Dockerfile</DependentUpon>
     </Content>
     <Content Include="Checkin.aspx" />
-    <None Include="Connected Services\Data\configuration91.svcinfo" />
-    <None Include="Connected Services\Data\configuration.svcinfo" />
-    <None Include="Connected Services\Data\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Checkout.aspx" />
-    <None Include="Connected Services\Data\Service.wsdl" />
-    <None Include="Connected Services\Data\Service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Data\Service1.disco" />
-    <None Include="Connected Services\Data\Service.disco" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Framework.ServiceModel.dll" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -216,35 +213,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Connected Services\Data\SmartHotel.Registration.Data.Registration.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\Data\SmartHotel.Registration.Data.RegistrationDaySummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Dockerfile" />
-    <None Include="Connected Services\Data\Service1.wsdl" />
-    <None Include="Connected Services\Data\Service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Data\Service2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Data\Service3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Data\Service4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Data\Service41.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Data\Service42.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Data\Service43.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="fonts\Poppins-Medium.ttf" />
     <Content Include="fonts\Poppins-Medium.woff" />
@@ -286,6 +255,16 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="ServiceClient1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceClient1.txt</LastGenOutput>
+      <LastOutputs>.\IService.generated.cs</LastOutputs>
+    </Content>
+    <Content Include="ServiceClient1.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiceClient1.tt</DependentUpon>
+    </Content>
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
@@ -311,11 +290,6 @@
     <Compile Include="Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\Data\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -325,6 +299,9 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="IService.generated.cs">
+      <DependentUpon>ServiceClient1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\BookingAggregates.cs" />
@@ -384,7 +361,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\Data\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
