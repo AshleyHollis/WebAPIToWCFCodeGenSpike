@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
+using SmarterWCFClient;
 using SmartHotel.Registration.Models;
 using SmartHotel.Registration.Services;
+using SmartHotel.Registration.Wcf.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,13 +29,13 @@ namespace SmartHotel.Registration
                 ShowKPIsButton.Visible = false;
             }
 
-            // TODO: Need to replace with proper WCF client.
-            //using (var client = ServiceClientFactory.NewServiceClient())
-            //{
-            //    var registrations = client.GetTodayRegistrations();
-            //    RegistrationGrid.DataSource = registrations;
-            //    RegistrationGrid.DataBind();
-            //}
+            using (var client = ServiceChannelClientFactory.Build<IService>())
+            {
+                var registrations = client.GetTodayRegistrations();
+
+                RegistrationGrid.DataSource = registrations;
+                RegistrationGrid.DataBind();
+            }
         }
 
         protected void RegistrationGrid_SelectedIndexChanged(Object sender, EventArgs e)

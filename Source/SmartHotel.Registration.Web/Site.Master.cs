@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using SmarterWCFClient;
+using SmartHotel.Registration.Wcf.Contracts;
 using SmartHotel.Registration.Wcf.Data;
 using System;
 using System.Collections.Generic;
@@ -22,16 +24,15 @@ namespace SmartHotel.Registration
             var instanceId = Environment.GetEnvironmentVariable("Fabric_ServicePackageActivationId");
             InstanceId.InnerText = instanceId;
 
-            // TODO: Need to replace with proper WCF client.
-            //using (var client = ServiceClientFactory.NewServiceClient())
-            //{
-            //    var summary = client.GetTodayRegistrationSummary();
-            //    Checkins.InnerText = summary.CheckIns.ToString();
-            //    Checkouts.InnerText = summary.CheckOuts.ToString();
+            using (var client = ServiceChannelClientFactory.Build<IService>())
+            {
+                var summary = client.GetTodayRegistrationSummary();
 
-            //    Clock.Text = DateTime.Now.ToShortTimeString();
-            //}
+                Checkins.InnerText = summary.CheckIns.ToString();
+                Checkouts.InnerText = summary.CheckOuts.ToString();
 
+                Clock.Text = DateTime.Now.ToShortTimeString();
+            }
         }
 
         protected void ClockTimer_Tick(object sender, EventArgs e)

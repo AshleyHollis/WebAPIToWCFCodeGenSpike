@@ -20,10 +20,6 @@ namespace SmartHotel.Registration
             if (IsPostBack)
                 return;
 
-            var hostIp = Environment.GetEnvironmentVariable("Fabric_NodeIPOrFQDN");
-            var fullAppName = Environment.GetEnvironmentVariable("Fabric_ApplicationName");
-            var appName = fullAppName.Substring(8);
-
             var registrationKPIService = new RegistrationKPIService();
             var result = await registrationKPIService.GetBookingListInfo();
 
