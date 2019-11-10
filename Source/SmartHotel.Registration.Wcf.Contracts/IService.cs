@@ -1,18 +1,14 @@
-﻿using SmartHotel.Registration.Wcf.Data;
-using SmartHotel.Registration.Wcf.Models;
+﻿using SmartHotel.Registration.Wcf.Contracts.Data;
+using SmartHotel.Registration.Wcf.Contracts.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
-namespace SmartHotel.Registration.Wcf
+namespace SmartHotel.Registration.Wcf.Contracts
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
-    public interface IService
+    public interface IService : IDisposable
     {
         [OperationContract]
         IEnumerable<Models.Registration> GetRegistrations();

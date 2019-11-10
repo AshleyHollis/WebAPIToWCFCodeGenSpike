@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 
-namespace SmartHotel.Registration.Wcf.Models
+namespace SmartHotel.Registration.Wcf.Contracts.Models
 {
     [DataContract]
     public class Registration

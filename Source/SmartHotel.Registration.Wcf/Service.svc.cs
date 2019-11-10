@@ -1,5 +1,7 @@
-﻿using SmartHotel.Registration.Wcf.Data;
-using SmartHotel.Registration.Wcf.Models;
+﻿using SmartHotel.Registration.Wcf.Contracts;
+using SmartHotel.Registration.Wcf.Contracts.Data;
+using SmartHotel.Registration.Wcf.Contracts.Models;
+using SmartHotel.Registration.Wcf.Data;
 using SmartHotel.Registration.Wcf.Services;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,7 @@ namespace SmartHotel.Registration.Wcf
     [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class Service : IService
     {
-        public IEnumerable<Models.Registration> GetRegistrations()
+        public IEnumerable<Contracts.Models.Registration> GetRegistrations()
         {
             using (var db = new BookingsDbContext())
             {
@@ -22,7 +24,7 @@ namespace SmartHotel.Registration.Wcf
             }
         }
 
-        public IEnumerable<Models.Registration> GetTodayRegistrations()
+        public IEnumerable<Contracts.Models.Registration> GetTodayRegistrations()
         {
             using (var db = new BookingsDbContext())
             {
@@ -60,7 +62,7 @@ namespace SmartHotel.Registration.Wcf
             }
         }
 
-        public Models.Registration GetCheckin(int registrationId)
+        public Contracts.Models.Registration GetCheckin(int registrationId)
         {
             using (var db = new BookingsDbContext())
             {
@@ -73,7 +75,7 @@ namespace SmartHotel.Registration.Wcf
             }
         }
 
-        public Models.Registration GetCheckout(int registrationId)
+        public Contracts.Models.Registration GetCheckout(int registrationId)
         {
             using (var db = new BookingsDbContext())
             {
@@ -101,9 +103,9 @@ namespace SmartHotel.Registration.Wcf
             }
         }
 
-        private Models.Registration BookingToCheckin(Booking booking)
+        private Contracts.Models.Registration BookingToCheckin(Booking booking)
         {
-            return new Models.Registration
+            return new Contracts.Models.Registration
             {
                 Id = booking.Id,
                 Type = "CheckIn",
@@ -119,9 +121,9 @@ namespace SmartHotel.Registration.Wcf
             };
         }
 
-        private Models.Registration BookingToCheckout(Booking booking)
+        private Contracts.Models.Registration BookingToCheckout(Booking booking)
         {
-            return new Models.Registration
+            return new Contracts.Models.Registration
             {
                 Id = booking.Id,
                 Type = "CheckOut",
@@ -142,5 +144,41 @@ namespace SmartHotel.Registration.Wcf
             var registrationKPIService = new RegistrationKPIService();
             registrationKPIService.SendBookingInfo(booking).Wait();
         }
+
+        #region IDisposable Support
+        private bool disposedValue = false; // To detect redundant calls
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    // TODO: dispose managed state (managed objects).
+                }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
+                // TODO: set large fields to null.
+
+                disposedValue = true;
+            }
+        }
+
+        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
+        // ~Service()
+        // {
+        //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+        //   Dispose(false);
+        // }
+
+        // This code added to correctly implement the disposable pattern.
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+            Dispose(true);
+            // TODO: uncomment the following line if the finalizer is overridden above.
+            // GC.SuppressFinalize(this);
+        }
+        #endregion
     }
 }

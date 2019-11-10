@@ -1,4 +1,5 @@
-﻿using SmartHotel.Registration.Wcf.Data.Generators;
+﻿using SmartHotel.Registration.Wcf.Contracts.Data;
+using SmartHotel.Registration.Wcf.Data.Generators;
 using SmartHotel.Registration.Wcf.Data.Generators.Generators;
 using System;
 using System.Collections.Generic;

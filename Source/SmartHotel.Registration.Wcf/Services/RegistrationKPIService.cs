@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SmartHotel.Registration.Wcf.Contracts.Data;
 using SmartHotel.Registration.Wcf.Data;
 using System;
 using System.Collections.Generic;
@@ -23,8 +24,6 @@ namespace SmartHotel.Registration.Wcf.Services
             _fullAppName = Environment.GetEnvironmentVariable("Fabric_ApplicationName") ?? throw new ArgumentException();
             _appName = _fullAppName.Substring(8);
         }
-
-
 
         public async Task SendBookingListInfo()
         {
@@ -55,7 +54,7 @@ namespace SmartHotel.Registration.Wcf.Services
             }
         }
 
-        public async Task SendBookingInfo(Data.Booking booking)
+        public async Task SendBookingInfo(Booking booking)
         {
             using (var client = new HttpClient())
             {
@@ -71,9 +70,9 @@ namespace SmartHotel.Registration.Wcf.Services
             }
         }
 
-        private Models.Registration BookingToCheckin(Booking booking)
+        private Contracts.Models.Registration BookingToCheckin(Booking booking)
         {
-            return new Models.Registration
+            return new Contracts.Models.Registration
             {
                 Id = booking.Id,
                 Type = "CheckIn",

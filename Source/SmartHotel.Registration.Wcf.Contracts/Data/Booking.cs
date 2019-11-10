@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace SmartHotel.Registration.Wcf.Data
+namespace SmartHotel.Registration.Wcf.Contracts.Data
 {
     public class Booking
     {
