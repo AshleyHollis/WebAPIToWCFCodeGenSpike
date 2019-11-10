@@ -29,6 +29,8 @@ namespace FullDotNetConsoleApp
             }
 
             Console.WriteLine("Completed.");
+            Console.WriteLine("Press enter to exit.");
+            Console.ReadLine();
         }
     }
 }
