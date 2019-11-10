@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SmarterWCFClient\SmarterWCFClient.csproj" />
+    <ProjectReference Include="..\SmartHotel.Registration.Wcf.Contracts\SmartHotel.Registration.Wcf.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -10,9 +10,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHotel.Registration.Web
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHotel.Registration.Wcf", "SmartHotel.Registration.Wcf\SmartHotel.Registration.Wcf.csproj", "{0CCB6791-5392-4231-BD06-154C64F7BD51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmarterWCFClient", "SmarterWCFClient\SmarterWCFClient.csproj", "{5DE86943-0020-43E7-94AD-A67E72B642E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmarterWCFClient", "SmarterWCFClient\SmarterWCFClient.csproj", "{5DE86943-0020-43E7-94AD-A67E72B642E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHotel.Registration.Wcf.Contracts", "SmartHotel.Registration.Wcf.Contracts\SmartHotel.Registration.Wcf.Contracts.csproj", "{B2E336CC-A16A-44A6-B11D-6755218FCDD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartHotel.Registration.Wcf.Contracts", "SmartHotel.Registration.Wcf.Contracts\SmartHotel.Registration.Wcf.Contracts.csproj", "{B2E336CC-A16A-44A6-B11D-6755218FCDD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FullDotNetConsoleApp", "FullDotNetConsoleApp\FullDotNetConsoleApp.csproj", "{5DCC6EDE-1458-43FD-B2E4-F838521D11C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +56,14 @@ Global
 		{B2E336CC-A16A-44A6-B11D-6755218FCDD7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B2E336CC-A16A-44A6-B11D-6755218FCDD7}.Release|x64.ActiveCfg = Release|Any CPU
 		{B2E336CC-A16A-44A6-B11D-6755218FCDD7}.Release|x64.Build.0 = Release|Any CPU
+		{5DCC6EDE-1458-43FD-B2E4-F838521D11C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DCC6EDE-1458-43FD-B2E4-F838521D11C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DCC6EDE-1458-43FD-B2E4-F838521D11C8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5DCC6EDE-1458-43FD-B2E4-F838521D11C8}.Debug|x64.Build.0 = Debug|Any CPU
+		{5DCC6EDE-1458-43FD-B2E4-F838521D11C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DCC6EDE-1458-43FD-B2E4-F838521D11C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DCC6EDE-1458-43FD-B2E4-F838521D11C8}.Release|x64.ActiveCfg = Release|Any CPU
+		{5DCC6EDE-1458-43FD-B2E4-F838521D11C8}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
