@@ -20,7 +20,7 @@ namespace SmarterWCFClient
     public class AssemblyGenerator : IGenerateAssembly
     {
         private string _CoreAssemblyFolder = @"C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.1.0\ref\netcoreapp2.1";
-        private string _FrameworkAssemblyFolder = @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2";
+        private string _FrameworkAssemblyFolder = @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8";
 
 
         private static IEnumerable<PortableExecutableReference> CreateNetCoreReferences()
