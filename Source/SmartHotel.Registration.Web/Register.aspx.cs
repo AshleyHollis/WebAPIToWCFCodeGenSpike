@@ -34,7 +34,7 @@ namespace SmartHotel.Registration
                 Total = new Random().Next(10, 40) * 100
             };
 
-            using (var client = new ServiceChannelClientFactory().Build<IService>())
+            using (var client = ServiceChannelClientFactory.Build<IService>())
             {
                 client.PostRegister(booking);
             }
